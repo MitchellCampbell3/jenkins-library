@@ -45,7 +45,7 @@ class DockerExecuteTest extends BasePiperTest {
         bodyExecuted = false
         docker = new DockerMock()
         JenkinsUtils.metaClass.static.isPluginActive = { def s -> new PluginMock(s).isActive() }
-        binding.setVariable('docker', docker)
+        binding.setVariable('docker', podman)
         shellRule.setReturnValue(JenkinsShellCallRule.Type.REGEX, "docker .*", 0)
         Utils.metaClass.echo = { def m -> }
     }
